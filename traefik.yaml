@@ -1,0 +1,133 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+    name: traefik-ingress-controller
+    namespace: kube-system  
+rules:
+- apiGroups:
+  - ""
+  - "extensions"
+  resources:
+  - configmaps
+  - secrets
+  - services
+  - endpoints
+  - ingresses
+  - nodes
+  - pods
+  verbs:
+  - list
+  - get
+  - watch
+- apiGroups:
+  - "extensions"
+  - ""
+  resources:
+  - ingresses
+  - ingresses/status
+  verbs:
+  - get
+  - update
+  - create
+  - list
+  - patch
+  - delete
+  - watch
+- apiGroups:
+  - "*"
+  - ""
+  resources:
+  - events
+  - certificates
+  - secrets
+  verbs:
+  - create
+  - list
+  - update
+  - get
+  - patch
+  - watch
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system
+subjects:
+  - kind: ServiceAccount
+    namespace: kube-system
+    name: traefik-ingress-controller
+roleRef:
+  kind: ClusterRole
+  name: traefik-ingress-controller
+  apiGroup: rbac.authorization.k8s.io
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik-ingress-service-external
+  namespace: kube-system
+spec:
+  selector:
+    name: traefik-ingress-lb
+  ports:
+    - protocol: TCP
+      port: 80
+      nodePort: 30080
+      name: http
+  type: NodePort
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik-ingress-service-internal
+  namespace: kube-system
+spec:
+  selector:
+    name: traefik-ingress-lb
+  ports:
+    - protocol: TCP
+      port: 8080
+      name: webui
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-web-ui
+  namespace: kube-system
+spec:
+  rules:
+  - host: traefik.elevate.se
+    http:
+      paths:
+      - backend:
+          serviceName: traefik-ingress-service-internal
+          servicePort: 8080
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system
+spec:
+  replicas: 1
+  selector:
+  template:
+    metadata:
+      labels:
+        name: traefik-ingress-lb
+    spec:
+      serviceAccountName: traefik-ingress-controller
+      terminationGracePeriodSeconds: 60
+      containers:
+      - image: traefik
+        name: traefik-ingress-lb
+        args:
+        - --api.insecure=true
+        - --providers.kubernetesIngress
