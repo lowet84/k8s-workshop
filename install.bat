@@ -1,1 +1,0 @@
-curl.exe -Lo kind.exe https://github.com/kubernetes-sigs/kind/releases/download/v0.5.1/kind-windows-amd64
