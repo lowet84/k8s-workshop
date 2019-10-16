@@ -22,13 +22,35 @@ kind get kubeconfig-path > kindpath
 set /p KUBECONFIG=<kindpath && del kindpath
 ```
 
+# Kubectl commands
+List stuff:
+```
+kubectl get pods
+kubectl get deploy
+kubectl get svc
+kubectl get ing
+kubectl get all
+kubectl get all --all-namespaces
+
+kubectl apply -f <config.yaml>
+kubectl delete -f <config.yaml>
+kubectl delete <type>/<app> (type is deploy, svc, ing etc)
+```
+
+
 # Later stuff
+Add to hosts file (C:\Windows\System32\drivers\etc\hosts)
+```
+127.0.0.1 traefik.elevate.se
+```
+
 Install Ingress Controller
 ```
 kubectl apply -f .\traefik.yaml
 ```
 
-Add to hosts file (C:\Windows\System32\drivers\etc\hosts)
+Run a container in the cluster
 ```
-127.0.0.1 traefik.elevate.se
+kubectl run -i --tty console --image=alpine --restart=Never -- sh
+kubectl delete pod/console
 ```

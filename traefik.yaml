@@ -126,7 +126,7 @@ spec:
       serviceAccountName: traefik-ingress-controller
       terminationGracePeriodSeconds: 60
       containers:
-      - image: traefik
+      - image: traefik:v2.0.2
         name: traefik-ingress-lb
         args:
         - --api.insecure=true
