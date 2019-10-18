@@ -1,5 +1,6 @@
 FROM alpine as builder
 RUN apk add nodejs-npm
+RUN npm install -G yarn
 RUN mkdir /src
 ADD package.json /src/package.json
 ADD yarn.lock /src/yarn.lock
