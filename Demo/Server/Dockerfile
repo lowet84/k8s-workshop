@@ -6,7 +6,7 @@ ADD yarn.lock /src/yarn.lock
 WORKDIR /src
 RUN yarn install --frozen-lockfile
 ADD index.ts /src/index.ts
-RUN yarn run builder
+RUN yarn run build
 
 FROM alpine 
 RUN apk add nodejs
