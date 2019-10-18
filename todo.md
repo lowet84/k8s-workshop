@@ -3,11 +3,15 @@
 ## Hur använder man det?
 ### docker command
 - docker run 
+- image
+- dockerhub/registry 
 - port
 - volume
-- dockerhub/registry
+- name
+- daemon mode
+- env
 
-#### Uppgift: Kör ett program från docker hub
+#### Uppgift: Kör ett program från docker hub (image: gogs/gogs, port: 3000, data: /data)
   
 ### Dockerfile
 - FROM
