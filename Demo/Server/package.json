@@ -8,11 +8,13 @@
     "@types/ws": "^6.0.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "parcel": "^1.12.4",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.4",
     "ws": "^7.1.2"
   },
   "scripts": {
-    "start": "ts-node index.ts"
+    "start": "ts-node index.ts",
+    "build": "parcel build index.ts --target=node --no-source-maps --bundle-node-modules"
   }
 }
