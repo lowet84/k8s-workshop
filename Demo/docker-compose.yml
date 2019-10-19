@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  k8s-demo-server:
+    image: demo-server
+    build: .
+    labels:
+      - traefik.nexus.port=8080
+      - traefik.nexus.frontend.rule=Host:k8sws.fredriklowenhamn.se
+      - traefik.docker.port=8081
+      - traefik.enable=true
+      - traefik.docker.frontend.rule=Host:k8sdemo.fredriklowenhamn.se
+    networks:
+      - core
+
+networks:
+  core:
+    external: true
