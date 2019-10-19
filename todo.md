@@ -13,6 +13,16 @@
 
 #### Uppgift: Kör ett program från docker hub (image: gogs/gogs, port: 3000, data: /data)
   
+## Docker compose
+- version
+- services
+- service name
+- ports
+- volumes
+- networks
+
+#### Uppgift: Gör om samma program från föregående uppgift i docker-compose
+
 ### Dockerfile
 - FROM
 - COPY/ADD
@@ -21,17 +31,13 @@
 - CMD
 - EXPOSE
 
-#### Uppgift: Dockerisera ett enkelt program
+#### Uppgift: Dockerisera demoappen i Demo/App
 
 ### Multi-stage (bra för ci/cd)
-- Vi tar det i mån av tid
+- FROM as 
+- COPY --from=
+- FROM en gång till
 
-## Docker compose
-- version
-- services
-- service name
-- ports
-- volumes
-- networks
+#### Uppgift: Gör en multi-stage build från första steget. 
 
 ### Uppgift: Skapa docker-compose-fil för image från föregående uppgift

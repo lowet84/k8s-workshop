@@ -8,6 +8,10 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "parcel build index.js --target=node --no-source-maps --bundle-node-modules"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.4"
   }
 }
