@@ -1,6 +1,7 @@
 version: '3.4'
 services:
   k8s-demo-server:
+    container_name: k8s-demo-server
     image: demo-server
     build: .
     labels:
