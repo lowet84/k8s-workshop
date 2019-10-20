@@ -76,6 +76,7 @@ services:
 #### Uppgift: Dockerisera demoappen i Demo/App
 #### Uppgift: Starta appen i docker
 - Sätt env "name" till ditt namn
+- montera en fil med någon text i till /host
 #### Uppgift: Kontrollera att porten går att komma åt
 
 ## Multi-stage (bra för ci/cd)
@@ -138,6 +139,17 @@ kubectl get nodes
 - describe
 - namespace
 
+#### Uppgift: Uppdatera hosts
+```
+127.0.0.1 traefik.elevate.se
+127.0.0.1 demo.elevate.se
+```
+
+#### Uppgift: Starta loadBalancer
+```
+kubectl apply -f .\traefik.yaml
+```
+
 ## Pod
 
 - Minsta beståndsdelen i ett kluster
@@ -167,7 +179,9 @@ kind: <typ av tjänst>
 metadata:
   name: <namn>
 spec:
-  (...)
+  (konfiguration)
+---
+(nästa config)
 ```
 
 ## Deployment
@@ -175,14 +189,12 @@ spec:
 - Hur många skall köras
 - Används för att skala upp och ner klustret
 
-#### Uppgift: Skapa en deployment för appen från föregående uppgifter
+#### Uppgift: Skapa en deployment för appen från föregående uppgifter (använd traefik.yml som utgångspunkt)
 #### Uppgift: Kontrollera att porten går att nå från den fristående podden (hitta ip med kubectl describe)
 
-- Volume
-- Hostpath
-- Environment
-
-#### Uppgift: Uppdatera deployment med 
+#### Uppgift: Uppdatera deployment med:
+- Volume/Hostpath (/etc/hostname:/host)
+- Environment (name=namn)
 
 ## Service
 - Nätverkslager som binder ihop poddar till en gemensam, lastbalanserad ip med dns-namn.
@@ -191,19 +203,12 @@ spec:
 
 ## Ingress
 
-#### Uppgift: Starta loadBalancer
-```
-kubectl apply -f .\traefik.yaml
-```
-
-#### Uppgift: Uppdatera hosts
-```
-127.0.0.1 traefik.elevate.se
-127.0.0.1 demo.elevate.se
-```
-
-#### Uppgift: Skapa en ingress
+#### Uppgift: Skapa en ingress med host: demo.elevate.se
+#### Uppgift: Surfa till http://demo.elevate.se
 
 ## DaemonSet
+- Selector
 
 ## LoadBalancer Service
+#### Uppgift: Surfa till http://traefik.elevate.se
+- Finns i populära K8S-implementationer, t.ex. AKS eller Amazon EKS
