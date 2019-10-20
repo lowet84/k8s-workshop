@@ -187,6 +187,8 @@ spec:
 ## Service
 - Nätverkslager som binder ihop poddar till en gemensam, lastbalanserad ip med dns-namn.
 
+#### Uppgift: Skapa en service
+
 ## Ingress
 
 #### Uppgift: Starta loadBalancer
@@ -200,6 +202,7 @@ kubectl apply -f .\traefik.yaml
 127.0.0.1 demo.elevate.se
 ```
 
+#### Uppgift: Skapa en ingress
 
 ## DaemonSet
 
