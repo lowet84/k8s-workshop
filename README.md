@@ -51,6 +51,6 @@ kubectl apply -f .\traefik.yaml
 
 Run a container in the cluster
 ```
-kubectl run -i --tty console --image=alpine --restart=Never -- sh
+kubectl run console --image=alpine --restart=Never -- tail -f /dev/null
 kubectl delete pod/console
 ```
