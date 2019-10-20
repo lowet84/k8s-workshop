@@ -136,6 +136,7 @@ kubectl get nodes
 - apply
 - delete
 - describe
+- namespace
 
 ## Pod
 
@@ -184,7 +185,7 @@ spec:
 #### Uppgift: Uppdatera deployment med 
 
 ## Service
-
+- Nätverkslager som binder ihop poddar till en gemensam, lastbalanserad ip med dns-namn.
 
 
 ## Ingress
