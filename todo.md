@@ -20,7 +20,7 @@ docker run --name=demo -p 80:8080 -v demo:/data -d -e HOSTNAME=myhost.com mycomp
 
 - docker run 
 - image
-- dockerhub/registry 
+- dockerhub/registry
 - name
 - rm
 - daemon mode 
@@ -81,19 +81,33 @@ services:
 
 #### Uppgift: Skapa ett konto på docker hub om ni inte redan har det
 
-- docker login
-- docker push
-- docker pull
+- login
+- push
+- pull
+- image ls
+- rm
+- rmi
 
 #### Uppgift: Ladda upp er multi-stage image till docker hub
+#### Uppgift: Starta en av dina kollegors image
 
-# Kubernetes
+# Kubernetes (K8S)
 ## Mer Intro
 - Vad är Kubernetes?
 - Vad är det bra för
 - Hur använder man det?
 
 #### Uppgift: Några slides
+
+## K8S-config
+```
+apiVersion: <api-version>
+kind: <typ av tjänst>
+metadata:
+  name: <namn>
+spec:
+  (...)
+```
 
 ## Pod
 #### Uppgift: Starta en fristående pod i klustret
