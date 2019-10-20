@@ -1,11 +1,7 @@
 version: '3.4'
 services:
   demo:
+    image: lowet84/k8s-workshop
     build: .
     environment:
       - name=fredrik
-
-  demo2:
-    build: .
-    environment:
-      - name=other
