@@ -13,8 +13,8 @@ export const Home = () => {
       <Layout.Content style={{ margin: '16px' }}>
         <Row gutter={16}>
           {messages.map((message, index) => (
-            <Col key={index} md={12} lg={4} style={{ marginBottom: '16px' }}>
-              <Card title={message.name} style={{ height: '200px' }}>
+            <Col key={index} md={12} lg={6} style={{ marginBottom: '16px' }}>
+              <Card title={message.name} style={{ height: '250px' }}>
                 {message.hosts.map((host, hindex) => (
                   <div key={hindex}>
                     <div style={{ display: 'flex', flexDirection: 'row' }}>
