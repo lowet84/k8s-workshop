@@ -8,7 +8,8 @@
 ## Intro
 
 - Vad är Docker?
-- Hur använder man det?
+- App-virtualisering
+- Dualitet
 
 #### ==> Uppgift: Kort genomgång om docker
 
@@ -23,28 +24,36 @@ docker run -i -t alpine sh
 - ps (-a)
 - rm (-f)
 
-### Fullt exempel
+### Fullt exempel av docker run
 
 ```
 docker run --name=demo -p 80:8080 -v demo:/data -d -e HOSTNAME=myhost.com mycompany/myimage start-app
 ```
 
-- docker run
-- image
+- image/container
 - dockerhub/registry
 - name
-- rm
-- daemon mode
 - port
 - volume
 - named volume
 - env
+- rm
+- daemon mode
 - command
 
 #### ==> Uppgift: Kör ett program från docker hub (image: gogs/gogs, port: 3000, data: /data)
+#### ==> Uppgift: Ta bort containern och skapa en ny likadan. Kontrollera att data sparas.
+
+## Docker compose
+
+- yaml/yml
+- version
+- services
+- service name
+- ports
+- volumes
 
 ### Exempel
-
 ```
 version: '3.4'
 services:
@@ -58,15 +67,6 @@ services:
       - HOSTNAME=myhost.com
     command: start-app
 ```
-
-## Docker compose
-
-- version
-- services
-- service name
-- ports
-- volumes
-- networks
 
 #### ==> Uppgift: Gör om samma program från föregående ==> Uppgift i docker-compose
 
