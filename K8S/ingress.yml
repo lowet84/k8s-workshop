@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: demo
+spec:
+  rules:
+  - host: demo.elevate.se
+    http:
+      paths:
+      - backend:
+          serviceName: demo
+          servicePort: 8080

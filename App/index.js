@@ -48,6 +48,10 @@ app.get('/', (req, res) => {
   `
   res.send(ret)
 })
+app.get('/data', (req, res) => {
+  res.send(data)
+})
+
 
 setInterval(() => {
   axios

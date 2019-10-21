@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: demo
+spec:
+  selector:
+    name: demo
+  ports:
+    - protocol: TCP
+      port: 8080
+      name: web

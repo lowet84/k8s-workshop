@@ -9,20 +9,26 @@ import Col from 'antd/es/col'
 export const Home = () => {
   var messages = useSelector(getGroupedMessages)
   return (
-    <Layout style={{ background: '#c4c4c4' }}>
+    <Layout style={{ background: '#c4c4c4', minHeight: '100vh' }}>
       <Layout.Content style={{ margin: '16px' }}>
         <Row gutter={16}>
           {messages.map((message, index) => (
-            <Col key={index} md={12} lg={6} style={{ marginBottom: '16px' }}>
-              <Card title={message.name}>
+            <Col key={index} md={12} lg={4} style={{ marginBottom: '16px' }}>
+              <Card title={message.name} style={{ height: '200px' }}>
                 {message.hosts.map((host, hindex) => (
                   <div key={hindex}>
-                    <div>{host.host}</div>
-                    <div>
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                      {host.host}:
                       {host.ids.map((id, iindex) => (
-                        <div key={iindex} style={{ marginLeft: '5px' }}>
-                          {id.id}
-                        </div>
+                        <div
+                          key={iindex}
+                          style={{
+                            margin: '5px',
+                            width: '10px',
+                            height: '10px',
+                            background: 'black'
+                          }}
+                        ></div>
                       ))}
                     </div>
                   </div>
