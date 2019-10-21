@@ -11,7 +11,8 @@ app.use(bodyParser.json())
 app.post('/api', (req, res) => {
   wss.clients.forEach(function each(client) {
     if (client.readyState === WebSocket.OPEN) {
-      client.send(JSON.stringify(req.body))
+      if (req.body && req.body.name && req.body.host && req.body.id)
+        client.send(JSON.stringify(req.body))
     }
   })
   res.send('ok')
