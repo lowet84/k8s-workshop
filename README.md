@@ -189,20 +189,83 @@ spec:
 - Hur många skall köras
 - Används för att skala upp och ner klustret
 
+Konfiguration för deployment:
+- kind: Deployment
+- apiVersion: extensions/v1beta1
+```
+(...)
+spec:
+  template:
+    metadata:
+      labels:
+        <nyckel>: <värde>
+    spec:
+      containers:
+        - image: <image>
+          name: <namn på image>
+          (...)
+```
+
 #### Uppgift: Skapa en deployment för appen från föregående uppgifter (använd traefik.yml som utgångspunkt)
 #### Uppgift: Kontrollera att porten går att nå från den fristående podden (hitta ip med kubectl describe)
 
 #### Uppgift: Uppdatera deployment med:
-- Volume/Hostpath (/etc/hostname:/host)
-- Environment (name=namn)
+### Environment (name=namn)
+```
+env:
+- name: <environment-variabel>
+  value: '<värde>'
+```
+### Volume/Hostpath (/etc/hostname:/host)
+
+På container:
+```
+volumeMounts:
+- mountPath: /<path i container>
+  name: <namn på volume>
+```
+På spec:
+```
+volumes:
+- name: <namn på volume>
+  hostPath:
+    path: <path på host>
+```
 
 ## Service
 - Nätverkslager som binder ihop poddar till en gemensam, lastbalanserad ip med dns-namn.
 
+Konfiguration för service:
+- kind: Service
+- apiVersion: v1
+```
+(...)
+spec:
+  selector:
+    <nyckel>: <värde> # Ska matcha från deployment
+  ports:
+    - protocol: TCP
+      port: <portnummer>
+      name: <namn på service>
+```
+
 #### Uppgift: Skapa en service
 
 ## Ingress
-
+Konfiguration för ingress:
+- kind: Ingress
+- apiVersion: extensions/v1beta1
+```
+(...)
+spec:
+  rules:
+  - host: <host url>
+    http:
+      paths:
+      - backend:
+          serviceName: <namn på service>
+          servicePort: <port på service>
+```
 #### Uppgift: Skapa en ingress med host: demo.elevate.se
 #### Uppgift: Surfa till http://demo.elevate.se
 
