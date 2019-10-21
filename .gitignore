@@ -3,3 +3,6 @@ helm.exe
 **/node_modules
 **/dist
 **/.cache
+K8S/
+App/docker-compose.yml
+App/Dockerfile
