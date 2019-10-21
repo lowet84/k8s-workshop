@@ -7,7 +7,7 @@
 - Vad är Docker?
 - Hur använder man det?
 
-#### Uppgift: Kort genomgång
+#### Uppgift: Kort genomgång om docker
 
 ## docker command
 
@@ -111,7 +111,7 @@ services:
 - Vad är det bra för
 - Hur använder man det?
 
-#### Uppgift: Några slides
+#### Uppgift: Kort genomgång av Kubernetes
 
 #### Uppgift: Installera kind (kubernetes in docker)
 
