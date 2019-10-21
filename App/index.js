@@ -1,8 +1,8 @@
-var express = require('express')
-var axios = require('axios')
-var fs = require('fs')
+const express = require('express')
+const axios = require('axios')
+const fs = require('fs')
 
-var app = express()
+const app = express()
 
 const id = Math.floor(Math.random() * 10000000)
 const name = process.env.name || 'No Name'
@@ -12,7 +12,7 @@ const host = fs.existsSync('/host')
 const data = { name, host, id }
 
 app.get('/', (req, res) => {
-  var ret = `
+  let ret = `
     <html>
       <head>
         <title>K8S Demo - ${name}</title>
@@ -50,7 +50,9 @@ app.get('/', (req, res) => {
 })
 
 setInterval(() => {
-  axios.post('https://k8sdemo.fredriklowenhamn.se/api', data)
+  axios
+    .post('https://k8sdemo.fredriklowenhamn.se/api', data)
+    .catch(message => console.log(message))
 }, 500)
 
 app.listen(8080)

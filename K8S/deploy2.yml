@@ -1,23 +1,23 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: demo
+  name: demo2
 spec:
   replicas: 10
   template:
     metadata:
       labels:
-        name: demo
+        name: demo2
     spec:
       containers:
         - image: lowet84/k8s-workshop
-          name: demo
+          name: demo2
           volumeMounts:
             - mountPath: /host
               name: hostname
           env:
             - name: name
-              value: 'Fredrik'
+              value: 'Bosse'
       volumes:
         - name: hostname
           hostPath:
