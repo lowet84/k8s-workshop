@@ -1,3 +1,5 @@
+# http://bit.ly/K8S-workshop
+
 # Docker
 
 #### Uppgift: Installera docker och docker-compose (inkluderade i docker desktop för windows)
