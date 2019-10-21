@@ -17,8 +17,11 @@
 #### ==> Uppgift: Starta en interaktiv container
 
 ```
-docker run --rm -it alpine sh
+docker run -i -t alpine sh
 ```
+
+- ps (-a)
+- rm (-f)
 
 ### Fullt exempel
 
