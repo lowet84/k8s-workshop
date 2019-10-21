@@ -3,5 +3,3 @@ services:
   demo:
     image: lowet84/k8s-workshop
     build: .
-    environment:
-      - name=fredrik
