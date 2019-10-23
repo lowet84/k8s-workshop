@@ -4,6 +4,7 @@
 # Docker
 
 #### ==> Uppgift: Installera docker och docker-compose (inkluderade i docker desktop för windows)
+#### ==> Uppgift: Klona repot: https://github.com/lowet84/k8s-workshop
 
 ## Intro
 
@@ -82,7 +83,7 @@ services:
 #### ==> Uppgift: Dockerisera demoappen i Demo/App
 #### ==> Uppgift: Starta appen i docker
 - Sätt env "name" till ditt namn
-- montera en fil med någon text i till /host
+- montera en fil med någon text i till /host/name
 #### ==> Uppgift: Kontrollera att porten går att komma åt
 
 ## Multi-stage (bra för ci/cd)
@@ -222,7 +223,7 @@ env:
 - name: <environment-variabel>
   value: '<värde>'
 ```
-### Volume/Hostpath (/etc/hostname:/host)
+### Volume/Hostpath (/etc/hostname:/host/name)
 
 På container:
 ```

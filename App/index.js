@@ -6,8 +6,8 @@ const app = express()
 
 const id = Math.floor(Math.random() * 10000000)
 const name = process.env.name || 'No Name'
-const host = fs.existsSync('/host')
-  ? fs.readFileSync('/host', 'utf8')
+const host = fs.existsSync('/host/name')
+  ? fs.readFileSync('/host/name', 'utf8')
   : 'No Host'
 const data = { name, host, id }
 
