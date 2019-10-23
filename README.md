@@ -44,6 +44,7 @@ docker run --name=demo -p 80:8080 -v demo:/data -e HOSTNAME=myhost.com -d mycomp
 - rm
 
 #### ==> Uppgift: Kör ett program från docker hub (image: gogs/gogs, port: 3000, data: /data)
+- admin/admin123
 #### ==> Uppgift: Ta bort containern och skapa en ny likadan. Kontrollera att data sparas.
 
 ## Docker compose
