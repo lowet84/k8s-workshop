@@ -1,5 +1,7 @@
-# http://bit.ly/K8S-workshop
-## https://github.com/lowet84/k8s-workshop/blob/master/README.md
+# Workshop: Docker & Kubernetes
+
+#### http://bit.ly/K8S-workshop
+#### https://github.com/lowet84/k8s-workshop/blob/master/README.md
 
 # Docker
 
@@ -146,17 +148,6 @@ kubectl get nodes
 - describe
 - namespace
 
-#### ==> Uppgift: Uppdatera hosts
-```
-127.0.0.1 traefik.elevate.se
-127.0.0.1 demo.elevate.se
-```
-
-#### ==> Uppgift: Starta loadBalancer
-```
-kubectl apply -f .\traefik.yaml
-```
-
 ## Pod
 
 - Minsta beståndsdelen i ett kluster
@@ -275,6 +266,18 @@ spec:
           serviceName: <namn på service>
           servicePort: <port på service>
 ```
+
+#### ==> Uppgift: Uppdatera hosts
+```
+127.0.0.1 traefik.elevate.se
+127.0.0.1 demo.elevate.se
+```
+
+#### ==> Uppgift: Starta loadBalancer
+```
+kubectl apply -f .\traefik.yaml
+```
+
 #### ==> Uppgift: Skapa en ingress med host: demo.elevate.se
 #### ==> Uppgift: Surfa till http://demo.elevate.se
 
