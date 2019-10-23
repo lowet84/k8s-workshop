@@ -28,7 +28,8 @@ docker run -i -t alpine sh
 ### Fullt exempel av docker run
 
 ```
-docker run --name=demo -p 80:8080 -v demo:/data -d -e HOSTNAME=myhost.com mycompany/myimage start-app
+docker run --name=demo -p 80:8080 -v demo:/data -d -e HOSTNAME=myhost.com mycompany/myimage:latest
+ start-app
 ```
 
 - image/container
