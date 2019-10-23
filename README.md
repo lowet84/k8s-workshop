@@ -257,6 +257,8 @@ spec:
 ```
 
 #### ==> Uppgift: Skapa en service
+#### ==> Uppgift: Kontrollera att porten går att nå från den fristående podden (hitta ip med kubectl get svc)
+#### ==> Uppgift: Lägg till en nodeport på servicen och kolla om den går att komma åt direkt i browsern
 
 ## Ingress
 Konfiguration för ingress:
