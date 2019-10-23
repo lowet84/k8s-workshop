@@ -64,6 +64,8 @@ services:
     container_name: demo
     image: demo
     build: .
+    ports:
+      - 80:8080
     volumes:
       - demo:/data
     environment:
