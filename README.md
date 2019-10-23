@@ -30,7 +30,8 @@ docker run -i -t alpine sh
 ### Fullt exempel av docker run
 
 ```
-docker run --name=demo -p 80:8080 -v demo:/data -d -e HOSTNAME=myhost.com mycompany/myimage start-app
+docker run --name=demo -p 80:8080 -v demo:/data -e HOSTNAME=myhost.com -d mycompany/myimage:latest
+ start-app
 ```
 
 - image/container
@@ -40,11 +41,12 @@ docker run --name=demo -p 80:8080 -v demo:/data -d -e HOSTNAME=myhost.com mycomp
 - volume
 - named volume
 - env
-- rm
 - daemon mode
 - command
+- rm
 
 #### ==> Uppgift: Kör ett program från docker hub (image: gogs/gogs, port: 3000, data: /data)
+- admin/admin123
 #### ==> Uppgift: Ta bort containern och skapa en ny likadan. Kontrollera att data sparas.
 
 ## Docker compose
@@ -64,6 +66,8 @@ services:
     container_name: demo
     image: demo
     build: .
+    ports:
+      - 80:8080
     volumes:
       - demo:/data
     environment:
