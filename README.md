@@ -73,6 +73,9 @@ services:
     environment:
       - HOSTNAME=myhost.com
     command: start-app
+    
+volumes:
+  data:
 ```
 
 #### ==> Uppgift: Gör om samma program från föregående ==> Uppgift i docker-compose
