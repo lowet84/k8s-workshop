@@ -86,7 +86,7 @@ services:
 - CMD
 - EXPOSE
 
-#### ==> Uppgift: Dockerisera demoappen i Demo/App
+#### ==> Uppgift: Dockerisera demoappen i App
 #### ==> Uppgift: Starta appen i docker
 - Sätt env "name" till ditt namn
 - montera en fil med någon text i till /host/name
