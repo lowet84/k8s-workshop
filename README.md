@@ -251,7 +251,7 @@ spec:
   ports:
     - protocol: TCP
       port: <portnummer>
-      name: <namn på service>
+      name: <namn på port>
 ```
 
 #### ==> Uppgift: Skapa en service
